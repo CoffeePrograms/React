@@ -1,0 +1,25 @@
+.nav {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+
+    li {
+      a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

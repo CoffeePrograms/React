@@ -1,13 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import logo from '/cat.svg';
-import ApiComponent from './components/ApiComponent';
+import AppRouter from './AppRouter';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <img src={logo} className="logo" alt="logo" />
-      <ApiComponent />
+      <AppRouter />
     </div>
   );
 };

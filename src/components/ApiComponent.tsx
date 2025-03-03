@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './ApiComponent.module.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import withApiFetch from '../hoc/withApiFetch';
 
-interface ApiResponse {
-  data: { fact: string; length: number }[];
+interface Props {
+  fetchData: (url: string) => void;
+  loading: boolean;
 }
 
-const ApiComponent: React.FC = () => {
-  const [data, setData] = useState<ApiResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  const fetchData = async (url: string) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP ошибка: ${response.status}`);
-      }
-      const result: ApiResponse = await response.json();
-      setData(result);
-      setError(null);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : 'Неизвестная ошибка');
-      setData(null);
-    }
-  };
+const ApiComponent: React.FC<Props> = ({ fetchData }) => {
+  const data = useSelector((state: RootState) => state.api.data);
+  const error = useSelector((state: RootState) => state.api.error);
 
   return (
     <div>
@@ -32,11 +21,13 @@ const ApiComponent: React.FC = () => {
       <button onClick={() => fetchData('https://catfact.ninja/no_facts')}>
         Призыв ошибки
       </button>
+
       {data && (
         <div className={`${styles.dataContainer} ${styles.jsonContainer}`}>
           <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
       )}
+
       {error && (
         <div className={`${styles.dataContainer} ${styles.errorContainer}`}>
           <p>{error}</p>
@@ -46,4 +37,4 @@ const ApiComponent: React.FC = () => {
   );
 };
 
-export default ApiComponent;
+export default withApiFetch(ApiComponent);
