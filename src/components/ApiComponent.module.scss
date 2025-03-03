@@ -1,0 +1,40 @@
+.container {
+  margin: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.dataContainer {
+  text-align: left;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+.jsonContainer {
+  background-color: rgb(4, 42, 4);
+}
+
+.errorContainer {
+  background-color: rgb(107, 6, 6);
+}
