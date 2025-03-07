@@ -4,7 +4,7 @@ import ApiComponent from '../components/ApiComponent';
 const HomePage: React.FC = () => {
   return (
     <div>
-      <h1>API</h1>
+      <h1 className="display-1">API</h1>
       <ApiComponent />
     </div>
   );

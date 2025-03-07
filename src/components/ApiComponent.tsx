@@ -15,10 +15,16 @@ const ApiComponent: React.FC<Props> = ({ fetchData }) => {
 
   return (
     <div>
-      <button onClick={() => fetchData('https://catfact.ninja/facts')}>
+      <button
+        className="btn btn-primary"
+        onClick={() => fetchData('https://catfact.ninja/facts')}
+      >
         Призыв душнилы
       </button>
-      <button onClick={() => fetchData('https://catfact.ninja/no_facts')}>
+      <button
+        className="btn btn-danger"
+        onClick={() => fetchData('https://catfact.ninja/no_facts')}
+      >
         Призыв ошибки
       </button>
 

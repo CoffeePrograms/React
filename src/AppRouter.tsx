@@ -11,7 +11,7 @@ const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <img src={logo} className="logo" alt="logo" />
+      <img src={logo} className="logo mb-1 mt-5" alt="logo" />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
